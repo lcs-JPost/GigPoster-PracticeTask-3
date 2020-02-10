@@ -32,6 +32,37 @@ let black = Color(hue: 0, saturation: 100, brightness: 0, alpha: 100)
 
 // Begin your solution here...
 
+// change the background color
+canvas.fillColor = darkGrey
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
+
+
+// begin with the lines
+//rotate the canvas
+canvas.rotate(by: -45)
+canvas.defaultLineWidth = 20
+
+for LineX2 in stride(from: -360, through: 360, by: 40) {
+    if LineX2 < -79 {
+        canvas.lineColor = lightGrey
+    } else if LineX2 > -80 && LineX2 < 41 {
+        canvas.lineColor = deepYellow
+    } else if LineX2 > 40 {
+        canvas.lineColor = black
+    }
+    print(LineX2)
+    canvas.drawLine(from: Point(x: LineX2, y: 0), to: Point(x: LineX2, y: 800))
+}
+canvas.rotate(by: 45)
+canvas.drawRectangle(at: Point(x: 0, y: 400), width: 400, height: 200)
+//draw a cluster
+canvas.defaultLineWidth = 2
+canvas.lineColor = black
+for LineY in stride(from: 0, through: 600, by: 50){
+    canvas.drawLine(from: Point(x: 0, y: LineY), to: Point(x: 400, y: LineY))
+}; for LineX in stride(from: 0, through: 400, by: 50) {
+    canvas.drawLine(from: Point(x: LineX, y: 0), to: Point(x: LineX, y: 600))
+}
 
 /*:
  ## Use Source Control
